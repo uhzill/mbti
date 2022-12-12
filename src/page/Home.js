@@ -2,7 +2,6 @@ import React from 'react';
 // css-in-js
 import styled from 'styled-components';
 import MainImage from '../img/main_img.png';
-// import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom';
 
 const Home = () =>{
