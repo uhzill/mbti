@@ -18,7 +18,7 @@ const Home = () =>{
             <Contents>
                 <Title>나와 어울리는 악기는?</Title>
                 <LogoImg>
-                    <img src={MainImage} width={700}/>
+                    <img src={MainImage} width={700} alt='메인 이미지' />
                 </LogoImg>
                 <Button onClick={handleClickButton}>테스트 시작하기</Button>
             </Contents>
