@@ -18,10 +18,6 @@ const Result = () =>{
         setResultData(result);
     },[mbti])
 
-    const handleClickButton = () =>{
-        navigate('/question');
-    }
-
     return (
         <Wrapper>
             <Header>{ resultData.name }</Header>
