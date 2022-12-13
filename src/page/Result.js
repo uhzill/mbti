@@ -1,13 +1,22 @@
 import React from 'react';
 // css-in-js
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 import { ResultData } from '../data/resultData';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 
 
 const Result = () =>{
 
     const navigate = useNavigate();
+    const [ searchParams ] = useSearchParams();
+    const mbti = searchParams.get('mbti');
+    // 최종적으로 도출한 결과 객체
+    const [ resultData, setResultData ] = React.useState({});
+
+    React.useEffect(()=>{
+        const result = ResultData.find((s) => s.best === mbti)
+        setResultData(result);
+    },[mbti])
 
     const handleClickButton = () =>{
         navigate('/question');
@@ -15,13 +24,13 @@ const Result = () =>{
 
     return (
         <Wrapper>
-            <Header> TEST 결과!</Header>
+            <Header>{ resultData.name }</Header>
             <Contents>
-                <Title>{ ResultData[0].name }</Title>
+                <Title>{ resultData.best }</Title>
                 <ResultImg>
-                    <img src={ ResultData[0].img } width={350}/>
+                    <img src={ resultData.img } width={350}/>
                 </ResultImg>
-                <Desc>{ ResultData[0].desc }</Desc>
+                <Desc>{ resultData.desc }</Desc>
                 <Button onClick={() => navigate("/")}>테스트 다시하기</Button>
             </Contents>
         </Wrapper>
@@ -63,6 +72,8 @@ const ResultImg = styled.div`
 `
 const Desc = styled.div`
     font-size: 20px;
+    text-align: center;
+    white-space: pre-line;
 `
 const Button = styled.div`
     width: 200px;

@@ -73,7 +73,7 @@ export const QuestionData = [
         id: 11,
         title: "Q11. 여행계획을 세울 때 당신은?",
         answerA: "시간단위 분단위별로 철저하게 계획 세움",
-        answerB: "대략적인 코스만 짬 또는 상대방의 좋은 여행 메이트가 되어줌",
+        answerB: "대략적인 코스만 짬",
         type: "JP",
     }, 
     {

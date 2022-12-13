@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ProgressBar, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 import { QuestionData } from '../data/questionData';
 
 const Question = () => {
@@ -13,10 +13,8 @@ const Question = () => {
         { id: 'TF', score: 0 },
         { id: 'JP', score: 0 }
     ])
+
     const navigate = useNavigate();
-
-    console.log(totalScore);
-
     const handleClickButton = (num, type) => {
 
         const newScore = totalScore.map((s) => 
@@ -28,8 +26,20 @@ const Question = () => {
         if(QuestionData.length !== questionNum + 1 ){
             setQuestionNum(questionNum + 1);
         } else {
+            // MBTI 도출
+            const mbti = newScore.reduce(
+                (acc, curr) =>
+                acc + (curr.score >= 2 ? curr.id.substring(0,1): curr.id.substring(1,2)),
+                ""
+            );
+
             // 결과 페이지
-            navigate("/result");
+            navigate({
+                pathname: '/result',
+                search: `?${createSearchParams({
+                    mbti: mbti,
+                })}`
+            });
         }
 
         // if( type === "EI"){
