@@ -27,7 +27,10 @@ const Result = () =>{
                     <img src={ resultData.img } width={350} alt='결과 이미지'/>
                 </ResultImg>
                 <Desc>{ resultData.desc }</Desc>
-                <Button onClick={() => navigate("/")}>테스트 다시하기</Button>
+                <ButtonGroup>
+                    <Button onClick={() => navigate("/")}>테스트 다시하기</Button>
+                    <KakaoShareButton/>
+                </ButtonGroup>
             </Contents>
         </Wrapper>
     )
@@ -74,7 +77,7 @@ const Desc = styled.div`
 const Button = styled.div`
     width: 200px;
     height: 50px;
-    margin-top: 30px;
+    margin-top: 10px;
     background-color: #000;
     color: #fff;
     font-size: 20px;
@@ -86,4 +89,25 @@ const Button = styled.div`
         background-color: #E59721;
         transform: scale(1.1);
     }
+`
+
+const KakaoShareButton = styled.div`
+    width: 200px;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: #E59721;
+        transform: scale(1.1);
+    }
+`
+const ButtonGroup = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
 `
