@@ -18,12 +18,11 @@ const KakaoShareButton = () => {
         objectType: 'feed',
         content: {
           title: '오케스트라 MBTI TEST 결과',
-          description: '일단아무거나',
+          description: '일단아무거나 넣기',
           imageUrl:
             'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
           link: {
             mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
           },
         },
         buttons: [
